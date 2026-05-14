@@ -47,7 +47,8 @@ fun ImageCustom(
         Image(
             painter = painter,
             contentDescription = null,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
         )
 
         when (painter.state) {
