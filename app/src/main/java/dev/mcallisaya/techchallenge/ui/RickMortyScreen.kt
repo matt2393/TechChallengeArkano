@@ -59,6 +59,10 @@ fun RickMortyScreen(
             errorCode = errorCode ?: ErrorCode.UNKNOWN,
             onDismissRequest = {
                 rickMortyViewModel.resetStatus()
+            },
+            retry = {
+                rickMortyViewModel.resetStatus()
+                rickMortyViewModel.getCharacters()
             }
         )
     }

@@ -20,7 +20,8 @@ import dev.mcallisaya.techchallenge.domain.model.ErrorCode
 @Composable
 fun ErrorDialog(
     errorCode: ErrorCode = ErrorCode.UNKNOWN,
-    onDismissRequest: () -> Unit = {}
+    onDismissRequest: () -> Unit = {},
+    retry: () -> Unit = {}
 ) {
     Dialog(
         onDismissRequest = onDismissRequest,
@@ -32,7 +33,7 @@ fun ErrorDialog(
                 modifier = Modifier.align(Alignment.Center),
                 errorCode = errorCode,
                 onClick = {
-                    onDismissRequest.invoke()
+                    retry.invoke()
                 }
             )
         }
@@ -46,7 +47,7 @@ private fun ErrorDialogContent(
     onClick: () -> Unit = {}
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(15.dp)
@@ -60,7 +61,7 @@ private fun ErrorDialogContent(
                 onClick.invoke()
             },
         ) {
-            Text(stringResource(R.string.close))
+            Text(stringResource(R.string.retry))
         }
     }
 }

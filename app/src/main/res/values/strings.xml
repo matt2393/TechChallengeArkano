@@ -2,5 +2,5 @@
     <string name="app_name">TechChallenge</string>
 
     <string name="rick_and_morty_characters">Rick And Morty Characters</string>
-    <string name="close">Close</string>
+    <string name="retry">Retry</string>
 </resources>
