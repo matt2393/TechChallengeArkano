@@ -6,8 +6,9 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 import retrofit2.create
+import javax.inject.Inject
 
-class ApiRest {
+class ApiRest @Inject constructor() {
     private fun createBuilder(): Retrofit.Builder {
         val kotlinSerialization = Json {
             isLenient = true
