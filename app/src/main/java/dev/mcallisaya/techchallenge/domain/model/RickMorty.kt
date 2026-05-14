@@ -5,7 +5,7 @@ import dev.mcallisaya.techchallenge.data.model.RickMortyCharacterResponse
 data class RickMorty(
     val codeError: ErrorCode? = null,
     val pages: Int = 0,
-    val results: List<Result>? = null
+    val results: List<Result> = emptyList()
 ) {
     data class Result(
         val created: String? = null,
@@ -37,8 +37,9 @@ data class RickMorty(
 
 fun RickMortyCharacterResponse.toRickMorty() =
     RickMorty(
+        codeError = null,
         pages = info?.pages ?: 0,
-        results = results?.map { it.toResult() }
+        results = results?.map { it.toResult() } ?: emptyList()
     )
 
 private fun RickMortyCharacterResponse.Result.toResult() =
